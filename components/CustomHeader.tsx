@@ -11,6 +11,8 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import { Link } from "expo-router";
+import { BottomSheet } from "./BottomSheet";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 
 const SearchBar = () => {
   return (
@@ -20,7 +22,7 @@ const SearchBar = () => {
           <Ionicons name="search-outline" size={20} color={Colors.medium} />
           <TextInput placeholder="Restaurant , Dishes" style={styles.input} />
         </View>
-        <Link href={"/"} asChild>
+        <Link href={"/(modal)/filter"} asChild>
           <TouchableOpacity style={styles.optionButton}>
             <Ionicons name="options-outline" size={20} color={Colors.primary} />
           </TouchableOpacity>
@@ -31,13 +33,18 @@ const SearchBar = () => {
 };
 
 const CustomHeader = () => {
+  const bottomSheetRef = React.useRef<BottomSheetModal>(null);
+  const openModal = () => {
+    bottomSheetRef.current?.present();
+  };
   return (
     <SafeAreaView>
+      <BottomSheet ref={bottomSheetRef} />
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
           <Image source={require("@/assets/bike.jpg")} style={styles.bike} />
         </TouchableOpacity>
-        <View style={styles.titleContainer}>
+        <TouchableOpacity style={styles.titleContainer} onPress={openModal}>
           <Text style={styles.title}>Delivery . Now</Text>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Text style={styles.subTitle}>Gaziantep</Text>
@@ -47,7 +54,7 @@ const CustomHeader = () => {
               color={Colors.primary}
             />
           </View>
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.profileButton}>
           <Ionicons name="person-outline" size={20} color={Colors.primary} />
         </TouchableOpacity>
