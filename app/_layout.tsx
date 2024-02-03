@@ -31,6 +31,17 @@ export default function RootLayout() {
               },
             }}
           />
+          <Stack.Screen
+            name="(modal)/location-search"
+            options={{
+              presentation: "fullScreenModal",
+              headerTitle: "Current Location",
+              headerShadowVisible: false,
+              headerStyle: {
+                backgroundColor: Colors.lightGrey,
+              },
+            }}
+          />
         </Stack>
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
