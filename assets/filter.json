@@ -1,0 +1,14 @@
+[
+  { "name": "Acai", "count": 7 },
+  { "name": "Africa", "count": 9 },
+  { "name": "BBQ", "count": 430 },
+  { "name": "Turkey", "count": 120 },
+  { "name": "American", "count": 70 },
+  { "name": "Syria", "count": 30 },
+  { "name": "Sushi", "count": 150 },
+  { "name": "Mexican", "count": 200 },
+  { "name": "Italian", "count": 180 },
+  { "name": "Chinese", "count": 250 },
+  { "name": "Indian", "count": 120 },
+  { "name": "Greek", "count": 50 }
+]
